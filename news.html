@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - ASHKNIGHTS</title>
+    <link rel="stylesheet" href="news.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">ASHKNIGHTS</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="dashboard_admin.php">Dashboard</a></li>
+                    <li><a href="highlights.html">Highlights</a></li>
+                    <li><a href="schedules.html">Match Schedules</a></li>
+                    <li><a href="news.html" class="active">News</a></li>
+                </ul>
+            </nav>
+            <div class="logout">
+                <a href="logout.html">Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1>Club News</h1>
+                <p>Stay updated with the latest news about ASHKNIGHTS.</p>
+            </header>
+
+            <!-- News Management Section -->
+            <section class="admin-controls">
+                <h3>Manage News</h3>
+                <form id="news-form">
+                    <input type="text" id="news-title" placeholder="News Title" required>
+                    <textarea id="news-description" placeholder="News Description" rows="3" required></textarea>
+                    <input type="file" id="news-image" accept="image/*">
+                    <button type="submit" class="btn">Add News</button>
+                </form>
+            </section>
+
+            <!-- News Display Section -->
+            <section class="news-section">
+                <div id="news-container" class="news-container"></div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const newsForm = document.getElementById("news-form");
+        const newsContainer = document.getElementById("news-container");
+        let newsData = JSON.parse(localStorage.getItem("news")) || [];
+
+        // Load news on page load
+        document.addEventListener("DOMContentLoaded", displayNews);
+
+        // Add news
+        newsForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const title = document.getElementById("news-title").value;
+            const description = document.getElementById("news-description").value;
+            const imageInput = document.getElementById("news-image");
+            const imageURL = imageInput.files[0] ? URL.createObjectURL(imageInput.files[0]) : "";
+
+            const newNews = { id: Date.now(), title, description, imageURL };
+            newsData.push(newNews);
+            saveAndDisplayNews();
+
+            newsForm.reset();
+        });
+
+        // Save to local storage and display news
+        function saveAndDisplayNews() {
+            localStorage.setItem("news", JSON.stringify(newsData));
+            displayNews();
+        }
+
+        // Display all news dynamically
+        function displayNews() {
+            newsContainer.innerHTML = "";
+            newsData.forEach(news => {
+                const newsCard = document.createElement("div");
+                newsCard.classList.add("news-card");
+                newsCard.innerHTML = `
+                    <div class="news-image">
+                        <img src="${news.imageURL || 'placeholder-news.jpg'}" alt="${news.title}">
+                    </div>
+                    <div class="news-content">
+                        <h2>${news.title}</h2>
+                        <p>${news.description}</p>
+                        <a href="full-news.html?id=${news.id}" class="btn read-more">Read More</a>
+                        <button class="btn delete-news" data-id="${news.id}">Delete</button>
+                    </div>
+                `;
+                newsContainer.appendChild(newsCard);
+            });
+
+            // Add delete functionality
+            document.querySelectorAll(".delete-news").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const id = btn.dataset.id;
+                    newsData = newsData.filter(news => news.id != id);
+                    saveAndDisplayNews();
+                });
+            });
+        }
+    </script>
+</body>
+</html>

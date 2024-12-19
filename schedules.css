@@ -1,0 +1,206 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f9;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #000000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Keeps the sidebar fixed on the left */
+    height: 100vh; /* Full height of the viewport */
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    overflow-y: auto; /* Allows scrolling if the content overflows */
+}
+
+.sidebar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1; /* Ensures links stay under the logo */
+}
+
+.nav-links li {
+    margin-bottom: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white; /* Default text color */
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: block;
+    font-size: 1rem;
+    transition: background 0.3s, color 0.3s; /* Smooth transition for background and color */
+}
+
+/* Hover Styling */
+.nav-links a:hover {
+    background: white; /* White background on hover */
+    color: black; /* Black text on hover */
+}
+
+/* Active Link Styling */
+.nav-links a.active {
+    background: #585758; /* Purple background for the active link */
+    color: white; /* Keep the text white for the active link */
+    font-weight: bold; /* Emphasize the active link with bold text */
+}
+
+
+
+/* Logout Button */
+.logout {
+    margin-top: auto; /* Pushes the logout button to the bottom of the sidebar */
+}
+
+.logout a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background: #444343;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    transition: background 0.3s ease-in-out;
+}
+
+.logout a:hover {
+    background: #aaa9ac;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 2rem;
+    flex: 1;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: #000000;
+}
+
+.admin-section {
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-section input {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.admin-section .btn {
+    background: #000000;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin-section .btn:hover {
+    background: #545454;
+}
+
+/* Matches Section */
+.matches-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.match-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+}
+
+.match-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.match-card h3 {
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.match-card p {
+    margin: 0.5rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.match-card .match-time {
+    font-weight: bold;
+    color: #000;
+}
+
+.options-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    float: right;
+}
+
+.options-menu {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.options-menu .btn {
+    background: #444343;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.options-menu .btn:hover {
+    background: #9a9a9a;
+}
+

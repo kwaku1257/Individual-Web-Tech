@@ -1,0 +1,137 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #161616, #242f28); 
+}
+
+
+.container {
+    display: flex;
+    width: 80%;
+    height: 90vh;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.left-section {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+
+.form-header h1 {
+    font-size: 1.8rem;
+    color: #191919;
+    margin-bottom: 1rem;
+}
+
+.form-header p {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.signup-form label {
+    display: block;
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.signup-form input,
+.signup-form select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.signup-form input:focus,
+.signup-form select:focus {
+    border-color: #7c7b7e;
+    outline: none;
+    box-shadow: 0 0 5px rgba(142, 138, 146, 0.5);
+}
+
+.signup-form .btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: #000000;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.signup-form .btn:hover {
+    background: #395242;
+}
+
+.redirect {
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.redirect a {
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.redirect a:hover {
+    text-decoration: underline;
+}
+
+/* Right Section: Video */
+.right-section {
+    flex: 1;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-section,
+    .right-section {
+        flex: none;
+        width: 100%;
+        height: 50vh;
+    }
+
+    .right-section video {
+        height: auto;
+    }
+}

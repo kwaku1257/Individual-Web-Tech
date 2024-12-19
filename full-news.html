@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full News - ASHKNIGHTS</title>
+    <link rel="stylesheet" href="full-news.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="news-header">
+        <div class="logo">ASHKNIGHTS</div>
+        <nav class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="highlights.html">Highlights</a>
+            <a href="schedules.html">Match Schedules</a>
+            <a href="news.html" class="active">News</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="news-container">
+        <!-- Full News Article -->
+        <article class="full-news" id="full-news-article">
+            <h1 id="news-title">News Title Placeholder</h1>
+            <div class="news-meta">
+                <p>Published: <span id="news-date">Date Placeholder</span></p>
+                <p>By: <span id="news-author">Author Placeholder</span></p>
+            </div>
+            <img src="placeholder.jpg" alt="News Image" id="news-image" class="news-img">
+            <div id="news-content">
+                <p>News content placeholder...</p>
+            </div>
+        </article>
+
+        <!-- Feedback Section -->
+        <section class="feedback-section">
+            <h3>Leave Your Feedback</h3>
+            <textarea id="feedback-input" placeholder="What are your thoughts?" rows="3"></textarea>
+            <button id="submit-feedback" class="btn">Submit</button>
+            <div id="feedback-container" class="feedback-container"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="news-footer">
+        <p>&copy; 2024 ASHKNIGHTS Basketball Club. All rights reserved.</p>
+    </footer>
+
+    <script src="full-news.js"></script>
+</body>
+</html>

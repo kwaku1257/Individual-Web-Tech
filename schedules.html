@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Schedules - ASHKNIGHTS</title>
+    <link rel="stylesheet" href="schedules.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">ASHKNIGHTS</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="dashboard_admin.php">Dashboard</a></li>
+                    <li><a href="highlights.html">Highlights</a></li>
+                    <li><a href="schedules.html" class="active">Match Schedules</a></li>
+                    <li><a href="news.html">News</a></li>
+                </ul>
+            </nav>
+            <div class="logout">
+                <a href="index.html">Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Page Header -->
+            <header class="page-header">
+                <h1>Upcoming Matches</h1>
+                <p>Stay updated with all upcoming ASHKNIGHTS matches.</p>
+            </header>
+
+            <!-- Admin Match Input Form -->
+            <section class="admin-section" id="admin-section">
+                <h2>Add Upcoming Match</h2>
+                <input type="file" id="match-image" accept="image/*" placeholder="Upload Match Image">
+                <input type="text" id="match-title" placeholder="Match Title (e.g., Ashknights vs Longshots)">
+                <input type="text" id="match-court" placeholder="Court Location">
+                <input type="datetime-local" id="match-time">
+                <button class="btn" id="add-match-btn">Add Match</button>
+            </section>
+
+            <!-- Matches Section -->
+            <section class="matches-section" id="matches-container">
+                <!-- Matches will dynamically appear here -->
+            </section>
+        </main>
+    </div>
+
+    <script src="schedules.js"></script>
+</body>
+</html>
